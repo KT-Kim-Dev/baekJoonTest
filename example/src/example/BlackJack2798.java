@@ -21,6 +21,7 @@ public class BlackJack2798 {
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		
 		try {
 			String str = br.readLine();
 			String str1 = br.readLine();

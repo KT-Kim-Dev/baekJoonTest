@@ -16,6 +16,7 @@ public class Factorial10872 {
 
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		try {
 			int value = Integer.parseInt(br.readLine());
 			
