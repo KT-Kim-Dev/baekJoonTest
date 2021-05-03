@@ -15,6 +15,7 @@ public class SumOneTwoThree9095 {
 			for(int i = 0 ; i < cnt ; i++) {
 				int N = Integer.parseInt(br.readLine());
 				int	S = SUM(N);
+				
 				bw.write(""+S);
 				bw.newLine();
 			}
@@ -28,6 +29,11 @@ public class SumOneTwoThree9095 {
 			return 1;
 		if(root < 0)
 			return 0;
+		if(root == 1)
+			return SUM(root-1);
+		if(root == 2)
+			return SUM(root-1)+SUM(root-2);
+			
 		return SUM(root-1)+SUM(root-2)+SUM(root-3);
 	}
 }
