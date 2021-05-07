@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -48,7 +49,9 @@ public class DFSandBFS1260 {
 				System.out.print((s+1) + " ");
 				
 				// 방문한 노드와 인접한 모든 노드를 가져온다.
+				Collections.sort(adj[s]);
 				Iterator<Integer> iter = adj[s].listIterator();
+				
 				while(iter.hasNext()) {
 					int n = iter.next();
 					if(visited[n] == false) {
@@ -64,6 +67,7 @@ public class DFSandBFS1260 {
 			visited[v] = true;
 			System.out.print((v+1)+" ");
 			
+			Collections.sort(adj[v]);
 			Iterator<Integer> iter = adj[v].listIterator();
 			while(iter.hasNext()) {
 				int n = iter.next();
@@ -110,7 +114,7 @@ public class DFSandBFS1260 {
 				if(A<B)
 					graph.addEdge(A,B);
 				else
-					graph.addEdge(B, A);
+					graph.addEdge(B,A);
 			}
 			
 			graph.DFS(V-1);
