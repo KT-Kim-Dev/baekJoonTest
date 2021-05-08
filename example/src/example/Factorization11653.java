@@ -7,8 +7,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Factorization11653 {
-
-	
 	
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,30 +17,27 @@ public class Factorization11653 {
 
 			// 1<= N <= 10000000
 			if (N != 1) {
-				if(isPrimeNumber(N)) {
-					bw.write(""+N);
-					bw.flush();
-					return;
-				}
-				
 				int i = 2;
-				while(N != 1) {
+				do{
+					if(isPrimeNumber(N)) {
+						bw.write(""+N);
+						bw.flush();
+						return;
+					}
 					if(isPrimeNumber(i))
 					{
-						if(N%i == 0) {
+						while(N%i == 0) {
 							bw.write(""+i);
 							bw.newLine();
 							N = N/i;
-							i = 2;
-							
-							continue;
-						}else {
-							i++;
 						}
-					}else {
+						i++;
+					}
+					else {
 						i++;
 					}
 				}
+				while(N != 1);
 				bw.flush();
 			}
 		} catch (IOException e) {
