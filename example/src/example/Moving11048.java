@@ -20,7 +20,9 @@ import java.io.OutputStreamWriter;
  */
 
 public class Moving11048 {
-
+	public static int[][] MAP = null;
+	public static int[][] MATRIX = null;
+	
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -30,15 +32,48 @@ public class Moving11048 {
 			String line = br.readLine();
 			String[] NM = line.split(" ");
 			
+			int N = Integer.parseInt(NM[0]);
+			int M = Integer.parseInt(NM[1]);
 			
+			MATRIX = new int[N][M];
+			// Initialized
+			for(int i = 0 ; i < N ; i++) {
+				String A = br.readLine();
+				String[] B = A.split(" ");
+				for(int j = 0 ; j < M ; j++) {
+					MATRIX[i][j] = Integer.parseInt(B[j]);
+				}
+			}
+
+			// Memorization
+			getMaxCandies(0, 0, N, M);
 			
-			
+			bw.write("" + MAP[N-1][M-1]);
+			bw.flush();
 		}catch(IOException e) {
 			
 		}
 		
-		
-		
 	}
 
+	public static int getMaxCandies(int X, int Y, int N, int M) {
+		int answer = 0;
+		MAP = new int[N][M];
+		
+		for(  ; X < N ; X++) {
+			for( ; Y < M ; Y++) {
+				if((X<N-1) && MAP[X+1][Y] < MATRIX[X][Y]+MATRIX[X+1][Y])
+					MAP[X+1][Y] = MATRIX[X][Y]+MATRIX[X+1][Y];
+				
+				if((Y<M-1) && (MAP[X+1][Y+1] < MATRIX[X][Y]+MATRIX[X+1][Y+1]))
+					MAP[X+1][Y+1] = MATRIX[X][Y]+MATRIX[X+1][Y+1];
+				
+				if((X<N-1) && (Y<M-1) && MAP[X][Y+1] < MATRIX[X][Y]+MATRIX[X][Y+1])
+					MAP[X][Y+1] = MATRIX[X][Y]+MATRIX[X][Y+1];
+			}
+		}
+		
+		return answer;
+	}
+	
 }
