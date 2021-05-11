@@ -29,19 +29,18 @@ import java.util.HashMap;
 
 public class MakingNumberOne1463 {
 
-	public static int[] ARRAY = null;
+	public static HashMap<Long, Long> HASHMAP = new HashMap<Long, Long>();
+
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 		try {
-			int X = Integer.parseInt(br.readLine());
-//			for(int X = 1 ; X <= 1000000 ; X++) {
-			ARRAY = new int[(int)X+1];
-			initialArray(X);
-			
-//			bw.write(X + "   " + ARRAY[X]);
-			bw.write(""+ARRAY[(int)X]);
+			long X = Long.parseLong(br.readLine());
+//			for(long X = 1 ; X <= 1000000 ; X++) {
+			long answer = makingNumOne(X);
+//			bw.write(X + "   " + answer);
+			bw.write(""+answer);
 //			bw.newLine();
 			bw.flush();
 //			}
@@ -50,19 +49,81 @@ public class MakingNumberOne1463 {
 		}
 	}
 
-	public static void initialArray(int X) {
-		ARRAY[1] = 0;
-		
-		for(int i = 2 ; i <= X ; i++) {
-			ARRAY[i] = ARRAY[i-1] + 1;
-			if(i%2==0) {
-				ARRAY[i] = ARRAY[i]<(ARRAY[i/2]+1)?ARRAY[i]:(ARRAY[i/2]+1);
-			}
-			if(i%3==0) {
-				ARRAY[i] = ARRAY[i]<(ARRAY[i/3]+1)?ARRAY[i]:(ARRAY[i/3]+1);
-			}
-			
+	public static long makingNumOne(long X) {
+		long answer = 0;
+
+		if (X == 1)
+			return 0;
+
+		if (HASHMAP.containsKey(X)) {
+			return HASHMAP.get(X);
 		}
+
+		if (X % 6 == 0) {
+			long A = 1 + makingNumOne(X / 3);
+			long B = 1 + makingNumOne(X / 2);
+			long C = 1 + makingNumOne(X - 1);
+			if (A > B && C > B) {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<B?HASHMAP.get(X):B;
+				} else {
+				HASHMAP.put(X, B);
+				return B;
+				}
+			} else if (B > A && C > A) {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<A?HASHMAP.get(X):A;
+				} else {
+				HASHMAP.put(X, A);
+				return A;
+				}
+			} else if (B > C && A > C) {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<C?HASHMAP.get(X):C;
+				} else {
+				HASHMAP.put(X, C);
+				return C;
+				}
+			}
+		} else if (X % 3 == 0) {
+			long A = 1 + makingNumOne(X / 3);
+			long B = 1 + makingNumOne(X - 1);
+			if (A > B) {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<B?HASHMAP.get(X):B;
+				} else {
+					HASHMAP.put(X, B);
+					return B;
+				}
+			}else {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<A?HASHMAP.get(X):A;
+				} else {
+					HASHMAP.put(X, A);
+					return A;
+				}
+			}
+		} else if (X % 2 == 0) {
+			long A = 1 + makingNumOne(X / 2);
+			long B = 1 + makingNumOne(X - 1);
+			if (A > B) {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<B?HASHMAP.get(X):B;
+				} else {
+					HASHMAP.put(X, B);
+					return B;
+				}
+			}else {
+				if (HASHMAP.containsKey(X)) {
+					return HASHMAP.get(X)<A?HASHMAP.get(X):A;
+				} else {
+					HASHMAP.put(X, A);
+					return A;
+				}
+			}
+		}
+		
+		return 1 + makingNumOne(X - 1);
+
 	}
-	
 }
