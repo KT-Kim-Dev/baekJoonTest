@@ -24,7 +24,11 @@ public class Moving11048 {
 			
 			NM = new int[X][Y];
 			MATRIX = new int[X][Y];
+<<<<<<< Upstream, based on origin/master
 			
+=======
+			// Initialized
+>>>>>>> 699be91 BAEKJOON judge modify code
 			for(int i = 0 ; i < X ; i++) {
 				String line = br.readLine();
 				String[] ARR = line.split(" ");
