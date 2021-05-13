@@ -1,0 +1,60 @@
+package example;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class CoinZero11047 {
+	public static long arr[] = null;
+	
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		try {
+			
+			String line = br.readLine();
+			String[] NK = line.split(" ");
+			int N = Integer.parseInt(NK[0]);
+			long K = Long.parseLong(NK[1]);
+			
+			arr = new long[N];
+			
+			for(int i = 0 ; i < N ; i++) {
+				arr[i] = Long.parseLong(br.readLine());
+			}
+			long answer = getCountCoin(K);
+			
+			bw.write("" + answer);
+			bw.flush();
+		}catch(IOException e) {
+			
+		}
+		
+	}
+	
+	public static long getCountCoin(long K) {
+		if(K == 0) return 0;
+		
+		long L = K;
+		long A = 0;
+		long M = 0;
+		long B = 0;
+		for(long N : arr) {
+			M = K-N;
+			if(M < 0)
+				break;
+			else {
+				if(L > M) {
+					L = M;
+					A = K/N;
+					B = K%N;
+				}
+			}
+		}
+		return A + getCountCoin(B);
+	}
+
+}
