@@ -44,7 +44,7 @@ public class JumpJump11060 {
 					}
 				}
 			}
-			int answer = stepA[0]>0?stepA[0]:-1;
+			int answer = stepA[0]<=10000?stepA[0]:-1;
 			bw.write("" + answer);
 			bw.flush();
 		}catch(IOException e) {}
