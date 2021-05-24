@@ -1,4 +1,4 @@
-package programmers.example;
+package programmers.example.heap;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
