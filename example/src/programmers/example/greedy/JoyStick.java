@@ -52,9 +52,10 @@ public class JoyStick {
 		if(position == 0) {
 			int A = (int) (ch[position]-'A');
 			int B = ARRAY[A];
-			
-			int C = B+countStep(ch, position+1);
-			int D = B+countStep(ch, position-1);
+			STR[position] = ch[position];
+			char[] F = STR.clone();
+			int C = B+countStep(STR, ch, position+1);
+			int D = B+countStep(F, ch, position-1);
 			answer = C>D?D:C;
 		}else if(position < 0) {
 			int A = (int) (ch[ch.length+position]-'A');

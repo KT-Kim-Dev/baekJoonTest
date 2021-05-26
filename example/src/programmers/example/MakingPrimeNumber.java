@@ -13,15 +13,6 @@ public class MakingPrimeNumber {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		try {
 			
-//			Random r = new Random();
-//			int cnt = r.nextInt(47);
-//			cnt += 3;
-//			question = new int[cnt];
-//			for(int i = 0 ; i < cnt ; i++) {
-//				int a = r.nextInt(999);
-//			}
-			
-			
 			int answer = solution(question);
 
 			bw.write("" + answer);
