@@ -42,6 +42,7 @@ public class RemoteController {
 			//Init
 			String[] buttons = sWrongButtons.split(" ");
 
+			String text = " 어렵다 ";
 			for(int i = 9 ; i >= 0 ; i--) {
 				arrButtons.add(i);
 			}
