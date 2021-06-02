@@ -36,15 +36,11 @@ public class MakingNumberOne1463 {
 
 		try {
 			int X = Integer.parseInt(br.readLine());
-//			for(int X = 1 ; X <= 1000000 ; X++) {
 			ARRAY = new int[(int)X+1];
 			initialArray(X);
 			
-//			bw.write(X + "   " + ARRAY[X]);
 			bw.write(""+ARRAY[(int)X]);
-//			bw.newLine();
 			bw.flush();
-//			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
