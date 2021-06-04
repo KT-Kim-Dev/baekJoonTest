@@ -32,9 +32,8 @@ public class BestAlbem {
 	public static void main(String[] args) {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		String[] genres = { "classic", "pop", "classic", "classic","jazz","pop", "Rock", "jazz" };
-		int[] plays = { 500, 600, 150, 800, 1100, 2500, 100, 1000 };
-		
+		String[] genres = {"pop", "pop", "pop", "rap", "rap"};
+		int[] plays = {45, 50, 40, 60, 70};
 		int[] answer = solution(genres, plays);
 		
 		try {
@@ -53,6 +52,7 @@ public class BestAlbem {
 		}catch(IOException e) {
 			
 		}
+		 
 		
 	}
 	
@@ -62,8 +62,9 @@ public class BestAlbem {
 		HashMap<String, Integer> sumMap = new HashMap<String, Integer>();
 		HashMap<Integer, Integer> mapper = new HashMap<Integer, Integer>();
 		
+		// Input Initial Data.
 		for(int i = 0 ; i < genres.length ; i++) {
-			sumMap.put(genres[i], sumMap.getOrDefault(genres[i], plays[i])+plays[i]);
+			sumMap.put(genres[i], sumMap.getOrDefault(genres[i], 0)+plays[i]);
 			mapper.put(i, plays[i]);
 		}
 		
@@ -89,8 +90,7 @@ public class BestAlbem {
 			for(Entry<Integer, Integer> entry : list) {
 				if(count > 1)
 					break;
-				if(sumEntry.getKey().equals(genres[entry.getKey()]) && count < 2) {
-//					System.out.println("key : " + entry.getKey() + " value : " + entry.getValue());
+				if(sumEntry.getKey().equals(genres[entry.getKey()])) {
 					ans.add(entry.getKey());
 					count++;
 				}
