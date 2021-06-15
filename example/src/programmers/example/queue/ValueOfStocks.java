@@ -3,6 +3,7 @@ package programmers.example.queue;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -43,11 +44,13 @@ public class ValueOfStocks {
 		int[] answer = new int[prices.length];
 
 		Queue<Integer> queue = new LinkedList<Integer>();
-
+		
 		for (int i = 0; i < prices.length; i++) {
 			queue.offer(prices[i]);
 		}
 
+		Arrays.sort(prices);
+		
 		int j = 0;
 		while (queue.size() > 0) {
 			int a = 0;
