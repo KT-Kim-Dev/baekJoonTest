@@ -3,7 +3,7 @@ package programmers.example.monthchallenge;
 public class ThreeOpen {
 	public static void main(String[] args) {
 
-		int n = 125;
+		int n = 99999999;
 		
 		int answer = solution(n);
 		
@@ -16,7 +16,7 @@ public class ThreeOpen {
         int answer = 0;
         String threeNotation = "";
         
-        while(n > 3) {
+        while(n >= 3) {
         	threeNotation = n%3 + threeNotation;
         	n /= 3;
         }
@@ -24,11 +24,11 @@ public class ThreeOpen {
         
         char[] arr = threeNotation.toCharArray();
         
-        for(int i = 0 ; i >= 0 ; i--) {
-        	
+        for(int i = 0 ; i < arr.length ; i++) {
+        	double d = Math.pow(3, i);
+        	answer += (arr[i]-'0') * d;
         }
         
-        answer = Integer.parseInt(threeNotation);
         return answer;
     }
 }
