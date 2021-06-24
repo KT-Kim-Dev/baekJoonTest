@@ -1,5 +1,19 @@
 package programmers.example.dfsbfs;
 
+
+/**
+ * 
+ * want, wish, hope, desire, would like,
+ * choose, decide, determine, afford,
+ * plan, design, intend, aim, volunteer,
+ * ask, demand, learn, try, seek, struggle,
+ * fail, refuse, promise, offer, tend, manage 
+ * 
+ * @author kyoungtaekim
+ *
+ */
+
+
 public class TargetNumber {
 
 	public static void main(String[] args) {
