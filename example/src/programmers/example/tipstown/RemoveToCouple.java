@@ -6,7 +6,7 @@ import java.util.List;
 public class RemoveToCouple {
 	
 	public static void main(String[] args) {
-		String s = "baabaa";
+		String s = "bbvvbbvvqbbvvbbqvvbbvvbbqvvbbvvqbbvvbbvv";
 		
 		int answer = solution(s);
 		
@@ -23,28 +23,31 @@ public class RemoveToCouple {
         for(int i = 0 ; i < s.length() ; i++) {
         	list.add(s.substring(i, i+1));
         }
-        int cnt = 0;
         
         while(isChanged) {
-        	String b = list.get(cnt);
-        	
-        	for(int i = 1 ; i < list.size() ; i++) {
+        	int cnt = list.size();
+        	int i = 1;
+        	while(i < list.size()) {
+//        	for(int i = 1 ; i < list.size() ; i++) {
         		
+        		String b = list.get(i-1);
         		String c = list.get(i);
         		if(b.equals(c)) {
         			list.remove(i);
-        			list.remove(cnt);
+        			list.remove(i-1);
         		}else {
-        			b = c;
+        			i++;
         		}
         		
         	}
-
+        	
         	if(list.size() == 0)
-        		break;
+        		return 1;
         	if(list.size() == 1) {
         		return 0;
         	}
+        	if(list.size() == cnt)
+        		return 0;
         }
 
         return answer;
