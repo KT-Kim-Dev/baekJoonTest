@@ -20,14 +20,14 @@ public class OneTwoFourNation {
 		int B = 0;
 		int C = 0;
 
-		while (n >= (C += Math.pow(A, B))) {
-			B++;
-		}
-
-		for (int i = B - 1; i > -1; i--) {
+		for (int i = 19; i > -1; i--) {
 			int D = (int) Math.pow(A, i);
 
 			int E = n / D;
+			
+			if(E == 0) {
+				continue;
+			}
 			n = n % D;
 
 			if (E == 3 || E == 0) {
