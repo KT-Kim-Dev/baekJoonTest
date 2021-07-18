@@ -5,6 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * N으로 표현하기
+ * 
+ * 레벨 3 이상의 문제가 될 것 같은 다이나믹 프로그래밍 문제.
+ * 
+ * 해결 방식 : 숫자 N을 몇번 사용함에 따라 사칙연산에 맞춰서 계산 값을 다 누적하여 매칭시켜봄 
+ *
+ * @author kyoungtaekim
+ *
+ */
+
 public class DisplayToUseTheN {
 
 	public static void main(String[] args) {
