@@ -74,4 +74,39 @@ public class ValueOfStocks {
 
 		return answer;
 	}
+	
+//	public static int[] solution(int[] prices) {
+//		int[] answer = new int[prices.length];
+//
+//		Queue<Integer> queue = new LinkedList<Integer>();
+//		
+//		for (int i = 0; i < prices.length; i++) {
+//			queue.offer(prices[i]);
+//		}
+//
+//		Arrays.sort(prices);
+//		
+//		int j = 0;
+//		while (queue.size() > 0) {
+//			int a = 0;
+//			int price = queue.poll();
+//			Object[] arr = queue.toArray();
+//
+//			for (int i = 0; i < queue.size(); i++) {
+//				int b = (int) arr[i];
+//				if (price <= b) {
+//					a++;
+//				} else {
+//					a++;
+//					break;
+//				}
+//
+//			}
+//
+//			answer[j] = a;
+//			j++;
+//		}
+//
+//		return answer;
+//	}
 }
