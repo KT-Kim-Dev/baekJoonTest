@@ -3,7 +3,7 @@ package programmers.example.queue;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -39,74 +39,41 @@ public class ValueOfStocks {
 		} catch (IOException e) {
 		}
 	}
-
+	
 	public static int[] solution(int[] prices) {
 		int[] answer = new int[prices.length];
-
 		Queue<Integer> queue = new LinkedList<Integer>();
 		
 		for (int i = 0; i < prices.length; i++) {
 			queue.offer(prices[i]);
 		}
 
-		Arrays.sort(prices);
-		
 		int j = 0;
-		while (queue.size() > 0) {
+		while (!queue.isEmpty()) {
 			int a = 0;
 			int price = queue.poll();
-			Object[] arr = queue.toArray();
-
-			for (int i = 0; i < queue.size(); i++) {
-				int b = (int) arr[i];
+			
+			if(queue.isEmpty()) {
+				answer[j] = 0;
+				break;
+			}
+			
+			Iterator<Integer> arr = queue.iterator();
+			
+//			int b = 0;
+			while(arr.hasNext()) {
+				Integer b = arr.next();
 				if (price <= b) {
 					a++;
 				} else {
 					a++;
 					break;
 				}
-
 			}
-
 			answer[j] = a;
 			j++;
 		}
 
 		return answer;
 	}
-	
-//	public static int[] solution(int[] prices) {
-//		int[] answer = new int[prices.length];
-//
-//		Queue<Integer> queue = new LinkedList<Integer>();
-//		
-//		for (int i = 0; i < prices.length; i++) {
-//			queue.offer(prices[i]);
-//		}
-//
-//		Arrays.sort(prices);
-//		
-//		int j = 0;
-//		while (queue.size() > 0) {
-//			int a = 0;
-//			int price = queue.poll();
-//			Object[] arr = queue.toArray();
-//
-//			for (int i = 0; i < queue.size(); i++) {
-//				int b = (int) arr[i];
-//				if (price <= b) {
-//					a++;
-//				} else {
-//					a++;
-//					break;
-//				}
-//
-//			}
-//
-//			answer[j] = a;
-//			j++;
-//		}
-//
-//		return answer;
-//	}
 }
