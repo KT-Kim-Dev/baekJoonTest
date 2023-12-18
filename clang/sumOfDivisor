@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int n){
+    int answer = 0;
+
+    for(int i = 1 ; i <= n/2 ; i++){
+        if(n%1 == 0){
+            answer += n;
+        }
+    }
+
+    return answer;
+}
+
+int main(){
+    int n = 12;
+
+    int result;
+    result = solution(n);
+
+    printf("result : %d\n", result);
+}
